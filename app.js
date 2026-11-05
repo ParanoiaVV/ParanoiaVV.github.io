@@ -6,7 +6,7 @@
   4. Вставьте ссылку в GOOGLE_SHEET_CSV_URL ниже.
   answer — номер правильного варианта от 1 до 4.
 */
-const GOOGLE_SHEET_CSV_URL = "";
+const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSOMKL9_oJhSt9DIZtgeVKjlT5dxrIGJIQm_SElGXy9S-PAQ3T6mQD-Xso84f-HYj05A81NeNRk_AfP/pub?output=tsv";
 
 const demoQuestions = [
   { question: "Какой тип данных хранит целое число в C#?", options: ["string", "int", "bool", "double"], answer: 2, category: "БАЗОВЫЕ ТИПЫ" },
