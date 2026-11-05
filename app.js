@@ -43,7 +43,15 @@ function mapSheetRows(text) {
   const rows = parseCsv(text); if (rows.length < 2) throw new Error("В таблице нет строк");
   const headers = rows[0].map((h) => h.replace(/^\uFEFF/, "").toLowerCase().replace(/\s+/g, ""));
   const get = (r, name) => r[headers.indexOf(name)] || "";
-  return rows.slice(1).map((r) => ({ question: get(r, "question"), options: [1,2,3,4].map((n) => get(r, `option${n}`)), answer: Number(get(r, "answer")), category: get(r, "category") || "ВОПРОС" })).filter((q) => q.question && q.options.some(Boolean) && q.answer >= 1);
+  return rows.slice(1).map((r) => {
+    const options = [1,2,3,4].map((n) => get(r, `option${n}`));
+    const rawAnswer = get(r, "answer").trim();
+    const numericAnswer = Number(rawAnswer);
+    const answer = numericAnswer >= 1 && numericAnswer <= 4
+      ? numericAnswer
+      : options.findIndex((option) => option.trim().toLowerCase() === rawAnswer.toLowerCase()) + 1;
+    return { question: get(r, "question"), options, answer, category: get(r, "category") || "ВОПРОС" };
+  }).filter((q) => q.question && q.options.some(Boolean) && q.answer >= 1);
 }
 
 async function loadQuestions() {
