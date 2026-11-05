@@ -26,11 +26,12 @@ const $ = (id) => document.getElementById(id);
 const screens = { intro: $("introScreen"), quiz: $("quizScreen"), result: $("resultScreen") };
 
 function parseCsv(text) {
+  const delimiter = text.split(/\r?\n/, 1)[0].includes("\t") ? "\t" : ",";
   const rows = []; let row = []; let cell = ""; let quoted = false;
   for (let i = 0; i < text.length; i++) { const char = text[i]; const next = text[i + 1];
     if (char === '"' && quoted && next === '"') { cell += '"'; i++; }
     else if (char === '"') quoted = !quoted;
-    else if (char === ',' && !quoted) { row.push(cell.trim()); cell = ""; }
+    else if (char === delimiter && !quoted) { row.push(cell.trim()); cell = ""; }
     else if ((char === '\n' || char === '\r') && !quoted) { if (char === '\r' && next === '\n') i++; row.push(cell.trim()); if (row.some(Boolean)) rows.push(row); row = []; cell = ""; }
     else cell += char;
   }
@@ -40,7 +41,7 @@ function parseCsv(text) {
 
 function mapSheetRows(text) {
   const rows = parseCsv(text); if (rows.length < 2) throw new Error("В таблице нет строк");
-  const headers = rows[0].map((h) => h.toLowerCase().replace(/\s+/g, ""));
+  const headers = rows[0].map((h) => h.replace(/^\uFEFF/, "").toLowerCase().replace(/\s+/g, ""));
   const get = (r, name) => r[headers.indexOf(name)] || "";
   return rows.slice(1).map((r) => ({ question: get(r, "question"), options: [1,2,3,4].map((n) => get(r, `option${n}`)), answer: Number(get(r, "answer")), category: get(r, "category") || "ВОПРОС" })).filter((q) => q.question && q.options.some(Boolean) && q.answer >= 1);
 }
