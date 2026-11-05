@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101828" />
+    <meta name="description" content="Интерактивный тест по языку программирования C#" />
+    <title>Тест по C#</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Тест по C# — на главную">
+          <span class="brand-mark">C#</span>
+          <span class="brand-copy"><strong>Тест по</strong><span>программированию</span></span>
+        </a>
+        <div class="source-badge" id="sourceBadge"><span class="status-dot"></span> Демо-набор</div>
+      </header>
+
+      <main>
+        <section class="intro-screen" id="introScreen">
+          <div class="hero-copy">
+            <p class="eyebrow">ПРОВЕРЬ СЕБЯ</p>
+            <h1>Насколько хорошо ты знаешь <em>C#?</em></h1>
+            <p class="hero-text">Короткий тест на базовые конструкции языка, ООП и работу с коллекциями. Выбери ответ и сразу узнай результат.</p>
+            <div class="hero-actions">
+              <button class="button button-primary" id="startButton">Начать тест <span>→</span></button>
+              <div class="test-meta"><span id="questionCount">10 вопросов</span><span class="meta-separator">·</span><span>~ 5 минут</span></div>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="code-window">
+              <div class="window-dots"><i></i><i></i><i></i></div>
+              <code><span class="code-comment">// твой следующий шаг</span><br /><span class="code-keyword">var</span> result = <span class="code-keyword">new</span> <span class="code-type">Quiz</span>();<br /><span class="code-keyword">if</span> (result.IsReady)<br />&nbsp;&nbsp;<span class="code-type">Console</span>.WriteLine(<span class="code-string">"Поехали!"</span>);</code>
+            </div>
+            <div class="floating-card floating-card-top"><span class="floating-icon">✓</span><span><b>100%</b><small>фокус на практике</small></span></div>
+            <div class="floating-card floating-card-bottom"><span class="floating-icon purple">{ }</span><span><b>Clean code</b><small>начинается с основ</small></span></div>
+          </div>
+        </section>
+
+        <section class="quiz-screen hidden" id="quizScreen">
+          <div class="quiz-head"><div><p class="eyebrow">ВОПРОС <span id="currentNumber">01</span> / <span id="totalNumber">10</span></p><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div></div><button class="text-button" id="quitButton">Выйти</button></div>
+          <div class="question-card"><div class="question-tag" id="questionTag">БАЗОВЫЕ ТИПЫ</div><h2 id="questionText"></h2><div class="answers" id="answers"></div><div class="question-footer"><span id="answerHint">Выбери один вариант ответа</span><button class="button button-primary next-button" id="nextButton" disabled>Далее <span>→</span></button></div></div>
+        </section>
+
+        <section class="result-screen hidden" id="resultScreen">
+          <div class="result-badge">ТЕСТ ЗАВЕРШЁН</div><h2 id="resultTitle">Отличный результат!</h2><p class="result-lead" id="resultLead"></p>
+          <div class="score-card"><div class="score-ring" id="scoreRing"><div><strong id="scoreValue">0%</strong><small>результат</small></div></div><div class="score-details"><div><strong id="correctCount">0</strong><span>правильных ответов</span></div><div><strong id="resultTotal">10</strong><span>вопросов всего</span></div></div></div>
+          <div class="result-actions"><button class="button button-primary" id="restartButton">Пройти ещё раз <span>↻</span></button><button class="button button-ghost" id="homeButton">На главную</button></div>
+        </section>
+      </main>
+      <footer><span>© 2026 Тест по C#</span><span>Данные вопросов обновляются из Google Sheets</span></footer>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
