@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Меридиан",
+      "hasCanvas": false,
+      "bodyTextLen": 544,
+      "bodyTextHash": "fd5a470d3bf2fa25319027233baee8f357162f2f9daf316f1f719bf1816b802d",
+      "bodyTextPrefix": "Собираем небо… АТЛАС Меридиан Двенадцать координат, к которым ми",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Меридиан",
+      "hasCanvas": false,
+      "bodyTextLen": 462,
+      "bodyTextHash": "43966c84ae2c635a865a2b1bb81172b8683dbd48d37436dc38bf5b1c59d35327",
+      "bodyTextPrefix": "Собираем небо… АТЛАС Меридиан КАК СМОТРЕТЬ Возьмите мир за фонар",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
